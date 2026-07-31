@@ -6,7 +6,7 @@
 <!-- <link rel="stylesheet" href="https://jsdelivr.net" /> -->
 
     <t t-call-assets="website.assets_frontend" />
-    <script type="text/javascript" src="/v13_training_portal/static/src/js/views/register.js"/>
+      <script type="text/javascript" src="/v13_training_portal/static/src/js/views/register.js"/>
       <!-- <p>Hello World</p>
       <p t-esc="message" />
       <p t-esc="partner.name" />
@@ -52,7 +52,7 @@
                       <div class="mb-3">
                           <label for="confirmPassword" class="form-label">Confirm Password</label>
                           <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required="true" />
-                          <div id="password-err" class="error-feedback"></div>
+                          <div id="confirmPassword-err" class="error-feedback"></div>
                       </div>
 
                       <!-- Submit Button -->

@@ -1,0 +1,228 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?53tzqn');
+  src:  url('../fonts/icomoon.eot?53tzqn#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?53tzqn') format('truetype'),
+    url('../fonts/icomoon.woff?53tzqn') format('woff'),
+    url('../fonts/icomoon.svg?53tzqn#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+/*  line-height: 1;*/
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: 0.99em;
+  vertical-align: -15%;
+}
+
+.fa-llg {
+  font-size: 20px;
+}
+
+.fa-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+.icon-calendar:before {
+  content: "\e900";
+}
+.icon-chat:before {
+  content: "\e901";
+}
+.icon-chat-blank:before {
+  content: "\e902";
+}
+.icon-customize:before {
+  content: "\e903";
+}
+.icon-customize-setting:before {
+  content: "\e904";
+}
+.icon-dashboard:before {
+  content: "\e905";
+}
+.icon-down-arrow:before {
+  content: "\e906";
+}
+.icon-filter:before {
+  content: "\e907";
+}
+.icon-filter-new:before {
+  content: "\e908";
+}
+.icon-glyph-calendar:before {
+  content: "\e909";
+}
+.icon-glyph-customize:before {
+  content: "\e90a";
+}
+.icon-glyph-customize-setting:before {
+  content: "\e90b";
+}
+.icon-glyph-dashboard:before {
+  content: "\e90c";
+}
+.icon-glyph-discuss:before {
+  content: "\e90d";
+}
+.icon-glyph-discuss-blank:before {
+  content: "\e90e";
+}
+.icon-glyph-down-arrow:before {
+  content: "\e90f";
+}
+.icon-glyph-filter:before {
+  content: "\e910";
+}
+.icon-glyp-hfilter-new:before {
+  content: "\e911";
+}
+.icon-glyph-graph:before {
+  content: "\e912";
+}
+.icon-glyph-inbox:before {
+  content: "\e913";
+}
+.icon-glyph-increase-graph:before {
+  content: "\e914";
+}
+.icon-glyph-kanban:before {
+  content: "\e915";
+}
+.icon-glyph-left-arrow:before {
+  content: "\e916";
+}
+.icon-glyph-list:before {
+  content: "\e917";
+}
+.icon-glyph-list-open:before {
+  content: "\e918";
+}
+.icon-glyph-list-paper:before {
+  content: "\e919";
+}
+.icon-glyph-mail:before {
+  content: "\e91a";
+}
+.icon-glyph-mail-open:before {
+  content: "\e91b";
+}
+.icon-glyph-pivot:before {
+  content: "\e91c";
+}
+.icon-glyph-plus:before {
+  content: "\e91d";
+}
+.icon-glyph-right-arrow:before {
+  content: "\e91e";
+}
+.icon-glyph-search-list:before {
+  content: "\e91f";
+}
+.icon-glyph-search-unlist:before {
+  content: "\e920";
+}
+.icon-glyph-send:before {
+  content: "\e921";
+}
+.icon-glyph-setting:before {
+  content: "\e922";
+}
+.icon-glyph-star:before {
+  content: "\e923";
+}
+.icon-glyph-up-arrow:before {
+  content: "\e924";
+}
+.icon-glyph-voip:before {
+  content: "\e925";
+}
+.icon-graph:before {
+  content: "\e926";
+}
+.icon-icon-top-gray:before {
+  content: "\e927";
+}
+.icon-inbox:before {
+  content: "\e928";
+}
+.icon-increase-graph:before {
+  content: "\e929";
+}
+.icon-kanban:before {
+  content: "\e92a";
+}
+.icon-left-arrow:before {
+  content: "\e92b";
+}
+.icon-list:before {
+  content: "\e92c";
+}
+.icon-list-open:before {
+  content: "\e92d";
+}
+.icon-list-paper:before {
+  content: "\e92e";
+}
+.icon-mail:before {
+  content: "\e92f";
+}
+.icon-mail-open:before {
+  content: "\e930";
+}
+.icon-minus:before {
+  content: "\e931";
+}
+.icon-pivot:before {
+  content: "\e932";
+}
+.icon-plus:before {
+  content: "\e933";
+}
+.icon-right-arrow:before {
+  content: "\e934";
+}
+.icon-schedule:before {
+  content: "\e935";
+}
+.icon-search-list:before {
+  content: "\e936";
+}
+.icon-search-unlist:before {
+  content: "\e937";
+}
+.icon-send:before {
+  content: "\e938";
+}
+.icon-setting:before {
+  content: "\e939";
+}
+.icon-setting-range:before {
+  content: "\e93a";
+}
+.icon-star:before {
+  content: "\e93b";
+}
+.icon-up-arrow:before {
+  content: "\e93c";
+}
+.icon-voip:before {
+  content: "\e93d";
+}

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="155" height="93" viewBox="0 0 155 93">
+  <g id="Group_147" data-name="Group 147" transform="translate(0 -8)">
+    <g id="Group_146" data-name="Group 146">
+      <g id="Group_134" data-name="Group 134" transform="translate(6.458 31.25)">
+        <g id="Group_68" data-name="Group 68" transform="translate(0 0)">
+          <path id="Union_6" data-name="Union 6" d="M5.08,23a3.874,3.874,0,0,1,0-7.748H20.394a3.874,3.874,0,0,0-1.348-7.505H3.874A3.874,3.874,0,0,1,3.874,0H109.92a3.874,3.874,0,1,1,0,7.747H85.9a3.874,3.874,0,0,0-1.348,7.505h26.573a3.874,3.874,0,0,1,0,7.748Z" transform="translate(10.542 46.75)" fill="#f2f2f2"/>
+          <rect id="Rectangle_90" data-name="Rectangle 90" width="80" height="8" rx="4" transform="translate(52.542 13.75)" fill="#f2f2f2"/>
+          <rect id="Rectangle_88" data-name="Rectangle 88" width="80" height="9" rx="4.5" transform="translate(11.542 -0.25)" fill="#f2f2f2"/>
+          <rect id="Rectangle_89" data-name="Rectangle 89" width="9" height="9" rx="4.5" transform="translate(95.542 -0.25)" fill="#f2f2f2"/>
+          <rect id="Rectangle_97" data-name="Rectangle 97" width="23" height="9" rx="4.5" transform="translate(108.542 -0.25)" fill="#f2f2f2"/>
+          <rect id="Rectangle_96" data-name="Rectangle 96" width="9" height="8" rx="4" transform="translate(129.542 60.75)" fill="#f2f2f2"/>
+          <rect id="Rectangle_98" data-name="Rectangle 98" width="9" height="8" rx="4" transform="translate(-0.458 52.75)" fill="#f2f2f2"/>
+          <path id="Union_7" data-name="Union 7" d="M3.874,23a3.874,3.874,0,1,1,0-7.747H19.046a3.874,3.874,0,0,0,1.348-7.505H5.08A3.874,3.874,0,1,1,5.08,0H111.127a3.874,3.874,0,1,1,0,7.747H84.553A3.874,3.874,0,0,0,85.9,15.252H109.92a3.874,3.874,0,1,1,0,7.747Z" transform="translate(145.542 52.75) rotate(180)" fill="#f2f2f2"/>
+          <path id="Union_8" data-name="Union 8" d="M3.874,23a3.874,3.874,0,1,1,0-7.747H8.682a3.874,3.874,0,0,0,1.349-7.505h-5.5A3.874,3.874,0,1,1,4.534,0H59.127a3.874,3.874,0,0,1,0,7.747H47.462a3.874,3.874,0,0,0,1.348,7.505h9.655a3.874,3.874,0,1,1,0,7.747Z" transform="translate(64.542 38.75) rotate(180)" fill="#f2f2f2"/>
+        </g>
+      </g>
+      <g id="Group_136" data-name="Group 136" transform="translate(69.199 14.88)">
+        <g id="Group_71" data-name="Group 71" transform="translate(6.219 0)">
+          <g id="Rectangle_105" data-name="Rectangle 105" transform="translate(34.253 0) rotate(30)" fill="#fff" stroke="#ccc" stroke-width="2">
+            <rect width="52.342" height="68.507" rx="7" stroke="none"/>
+            <rect x="1" y="1" width="50.342" height="66.507" rx="6" fill="none"/>
+          </g>
+          <g id="Group_80" data-name="Group 80" transform="translate(23.101 34.447) rotate(30)">
+            <g id="Group_74" data-name="Group 74" transform="translate(0 0)">
+              <path id="Path_78" data-name="Path 78" d="M0,0H37.249" transform="translate(0 0)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+            </g>
+            <g id="Group_75" data-name="Group 75" transform="translate(0 6.928)">
+              <path id="Path_78-2" data-name="Path 78" d="M0,0H37.249" transform="translate(0 0)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+            </g>
+            <g id="Group_76" data-name="Group 76" transform="translate(0 13.855)">
+              <path id="Path_78-3" data-name="Path 78" d="M0,0H37.249" transform="translate(0 0)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+            </g>
+            <g id="Group_77" data-name="Group 77" transform="translate(0 20.783)">
+              <path id="Path_78-4" data-name="Path 78" d="M0,0H37.249" transform="translate(0 0)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+            </g>
+          </g>
+        </g>
+        <ellipse id="Ellipse_44" data-name="Ellipse 44" cx="2.518" cy="2.518" rx="2.518" ry="2.518" transform="translate(43.236 14.407) rotate(30)" fill="#707070"/>
+        <ellipse id="Ellipse_45" data-name="Ellipse 45" cx="2.518" cy="2.518" rx="2.518" ry="2.518" transform="translate(66.136 27.628) rotate(30)" fill="#707070"/>
+        <path id="Path_117" data-name="Path 117" d="M1594.573,1484.318h15.893" transform="translate(-1594.573 -1461.079)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+      </g>
+      <g id="Group_137" data-name="Group 137" transform="translate(0 14.88)">
+        <g id="Group_71-2" data-name="Group 71" transform="translate(0 0)">
+          <g id="Rectangle_105-2" data-name="Rectangle 105" transform="translate(79.583 59.328) rotate(150)" fill="#fff" stroke="#ccc" stroke-width="2">
+            <rect width="52.342" height="68.506" rx="7" stroke="none"/>
+            <rect x="1" y="1" width="50.342" height="66.506" rx="6" fill="none"/>
+          </g>
+          <g id="Group_80-2" data-name="Group 80" transform="translate(66.873 52.445) rotate(150)">
+            <g id="Group_74-2" data-name="Group 74" transform="translate(0 20.783)">
+              <path id="Path_78-5" data-name="Path 78" d="M0,0H37.249" transform="translate(0 0)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+            </g>
+            <g id="Group_75-2" data-name="Group 75" transform="translate(0 13.855)">
+              <path id="Path_78-6" data-name="Path 78" d="M0,0H37.249" transform="translate(0 0)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+            </g>
+            <g id="Group_76-2" data-name="Group 76" transform="translate(0 6.928)">
+              <path id="Path_78-7" data-name="Path 78" d="M0,0H37.249" transform="translate(0 0)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+            </g>
+            <g id="Group_77-2" data-name="Group 77" transform="translate(0 0)">
+              <path id="Path_78-8" data-name="Path 78" d="M0,0H37.249" transform="translate(0 0)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+            </g>
+          </g>
+        </g>
+        <ellipse id="Ellipse_44-2" data-name="Ellipse 44" cx="2.518" cy="2.518" rx="2.518" ry="2.518" transform="translate(45.084 18.769) rotate(150)" fill="#707070"/>
+        <ellipse id="Ellipse_45-2" data-name="Ellipse 45" cx="2.518" cy="2.518" rx="2.518" ry="2.518" transform="translate(22.184 31.99) rotate(150)" fill="#707070"/>
+        <path id="Path_119" data-name="Path 119" d="M0,0H15.893" transform="translate(111.597 28.308) rotate(30)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+      </g>
+      <g id="Group_135" data-name="Group 135" transform="translate(43.917 8)">
+        <g id="Rectangle_103" data-name="Rectangle 103" transform="translate(0.083 0)" fill="#fff" stroke="#ccc" stroke-width="2">
+          <rect width="67" height="89" rx="6" stroke="none"/>
+          <rect x="1" y="1" width="65" height="87" rx="5" fill="none"/>
+        </g>
+        <g id="Group_73" data-name="Group 73" transform="translate(9.589 46.189)">
+          <g id="Group_74-3" data-name="Group 74" transform="translate(0)">
+            <path id="Path_78-9" data-name="Path 78" d="M2074.709,590h48.677" transform="translate(-2074.709 -590)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+          </g>
+          <g id="Group_75-3" data-name="Group 75" transform="translate(0 9.053)">
+            <path id="Path_78-10" data-name="Path 78" d="M2074.709,590h48.677" transform="translate(-2074.709 -590)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+          </g>
+          <g id="Group_76-3" data-name="Group 76" transform="translate(0 18.106)">
+            <path id="Path_78-11" data-name="Path 78" d="M2074.709,590h48.677" transform="translate(-2074.709 -590)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+          </g>
+          <g id="Group_77-3" data-name="Group 77" transform="translate(0 27.159)">
+            <path id="Path_78-12" data-name="Path 78" d="M2074.709,590h48.677" transform="translate(-2074.709 -590)" fill="none" stroke="#e4e4e4" stroke-width="2"/>
+          </g>
+        </g>
+        <circle id="Ellipse_42" data-name="Ellipse 42" cx="3" cy="3" r="3" transform="translate(15.083 15)" fill="#707070"/>
+        <circle id="Ellipse_43" data-name="Ellipse 43" cx="3" cy="3" r="3" transform="translate(46.083 15)" fill="#707070"/>
+      </g>
+      <path id="Path_116" data-name="Path 116" d="M1594.573,1484.318h15.893" transform="translate(-1525.375 -1446.199)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_118" data-name="Path 118" d="M0,0H15.893" transform="translate(111.597 43.187) rotate(30)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_120" data-name="Path 120" d="M0,0H15.893" transform="translate(42.694 44.479) rotate(150)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

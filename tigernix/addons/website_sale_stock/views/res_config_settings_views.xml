@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tigernix>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.website.sale.stock</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='product_availability_setting']" position="attributes">
+                <attribute name="title">Manage the inventory of your products and display their availability status on the website.</attribute>
+            </xpath>
+
+            <xpath expr="//div[@name='stock_inventory_availability']" position="inside">
+                <div class="content-group">
+                    <div class="row mt16 no-margin" attrs="{'invisible': [('group_stock_multi_warehouses', '=', False)]}">
+                        <label for="website_warehouse_id" string="Warehouse" class="col-lg-3 o_light_label no-pad-left" />
+                        <field name="website_warehouse_id"/>
+                    </div>
+                    <div class="row mt16 no-margin" title="Default availability mode set on newly created storable products. This can be changed at the product level.">
+                        <label for="inventory_availability" string="Mode" class="col-lg-3 o_light_label no-pad-left" />
+                        <field name="inventory_availability" string="Inventory"/>
+                    </div><br/>
+                    <div class="row no-margin" attrs="{'invisible': [('inventory_availability', '!=', 'threshold')]}">
+                        <label for="available_threshold" string="Threshold" class="col-lg-3 o_light_label no-pad-left" />
+                        <field name="available_threshold" class="oe_inline" attrs="{'required': [('inventory_availability', '=', 'threshold')]}"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</tigernix>
+

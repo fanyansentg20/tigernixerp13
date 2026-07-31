@@ -1,0 +1,337 @@
+# Translation of TigernixERP Server.
+# This file contains the translation of the following modules:
+# 	* mail_bot
+# 
+# Translators:
+# Martin Trigaux, 2019
+# Alina Lisnenko <alinasemeniuk1@gmail.com>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: TigernixERP Server saas~12.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-26 08:16+0000\n"
+"PO-Revision-Date: 2019-08-26 09:11+0000\n"
+"Last-Translator: Alina Lisnenko <alinasemeniuk1@gmail.com>, 2019\n"
+"Language-Team: Ukrainian (https://www.transifex.com/tigernix/teams/41243/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Aaaaaw that's really cute but, you know, bots don't work that way. You're "
+"too human for me! Let's keep it professional ❤️"
+msgstr ""
+"О, це дійсно мило, але, ви знаєте, боти не працюють таким чином. Ви занадто "
+"людські для мене! Давайте залишимо це у професійному напрямку❤️"
+
+#. module: mail_bot
+#: model:ir.model,name:mail_bot.model_res_partner
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: mail_bot
+#: model:ir.model.fields.selection,name:mail_bot.selection__res_users__tigernixbot_state__disabled
+msgid "Disabled"
+msgstr "Відключено"
+
+#. module: mail_bot
+#: model:ir.model,name:mail_bot.model_mail_channel
+msgid "Discussion Channel"
+msgstr "Канал обговорення"
+
+#. module: mail_bot
+#: model:ir.model.fields,field_description:mail_bot.field_mail_bot__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: mail_bot
+#: model:ir.model,name:mail_bot.model_mail_thread
+msgid "Email Thread"
+msgstr "Тема електронної пошти"
+
+#. module: mail_bot
+#. openerp-web
+#: code:addons/mail_bot/static/src/js/mailbot_service.js:0
+#, python-format
+msgid "Enable desktop notifications to chat"
+msgstr "Увімкнути сповіщення на робочому столі в чаті"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Great! 👍<br/>Now, try to <b>send an attachment</b>, like a picture of your "
+"cute dog..."
+msgstr ""
+"Чудово! 👍<br/>Тепер спробуйте <b>надіслати прикріплення</b>, наприклад, "
+"зображення вашої милої собаки..."
+
+#. module: mail_bot
+#: model:ir.model,name:mail_bot.model_ir_http
+msgid "HTTP Routing"
+msgstr "Маршрутизація HTTP"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_channel.py:0
+#, python-format
+msgid ""
+"Hello,<br/>TigernixERP's chat helps employees collaborate efficiently. I'm here to "
+"help you discover its features.<br/><b>Try to send me an emoji :)</b>"
+msgstr ""
+"Вітаю,<br/>чат TigernixERP допомагає співробітникам ефективно співпрацювати. Я тут "
+"для того, щоби відкрити вам ці функції.<br/><b>Спробуйте надіслати мені "
+"смайлик :)</b>"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "Hmmm..."
+msgstr "Хммм..."
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "I'm afraid I don't understand. Sorry!"
+msgstr "Здається, я не розумію. Вибачте!"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"I'm just a bot... :( You can check <a "
+"href=\"https://www.tigernix.com/page/docs\">our documentation</a>) for more "
+"information!"
+msgstr ""
+"Я лише бот... :( Ви можете перевірити <a "
+"href=\"https://www.tigernix.com/page/docs\">нашу документацію</a>) для більшої "
+"інформації!"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"I'm not smart enough to answer your question.<br/>To follow my guide, ask"
+msgstr ""
+"Я не на стільки розумний, щоби відповісти на ваше запитання.<br/>Щоби "
+"слідкувати за моїм керівництвом, запитайте"
+
+#. module: mail_bot
+#: model:ir.model.fields,field_description:mail_bot.field_mail_bot__id
+msgid "ID"
+msgstr "ID"
+
+#. module: mail_bot
+#: model:ir.model.fields.selection,name:mail_bot.selection__res_users__tigernixbot_state__idle
+msgid "Idle"
+msgstr "Не задіяний"
+
+#. module: mail_bot
+#: model:ir.model.fields,field_description:mail_bot.field_mail_bot____last_update
+msgid "Last Modified on"
+msgstr "Останні зміни на"
+
+#. module: mail_bot
+#: model:ir.model,name:mail_bot.model_mail_bot
+msgid "Mail Bot"
+msgstr "Поштовий бот"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Not a cute dog, but you get it 😊<br/>To access special features, <b>start "
+"your sentence with '/'</b>. Try to get help."
+msgstr ""
+"Не милий собака, але ви отримаєте це 😊<br/>Щоб отримати доступ до "
+"спеціальних функцій, <b>почніть ваше речення з '/'</b>. Спробуйте отримати "
+"допомогу."
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Not exactly. To continue the tour, send an emoji, <b>type \":)\"</b> and "
+"press enter."
+msgstr ""
+"Не зовсім. Щоби продовжити тур, надішліть смайлик <b>введіть \":)\"</b> та "
+"натисніть enter."
+
+#. module: mail_bot
+#: model:ir.model.fields.selection,name:mail_bot.selection__res_users__tigernixbot_state__not_initialized
+msgid "Not initialized"
+msgstr "Не ініціалізовано"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Not sure wat you are doing. Please press / and wait for the propositions. "
+"Select \"help\" and press enter"
+msgstr ""
+"Не впевнений у тому, що ви робите. Натисніть / і чекайте пропозицій. "
+"Виберіть \"help\" і натисніть клавішу enter"
+
+#. module: mail_bot
+#. openerp-web
+#: code:addons/mail_bot/static/src/js/systray_messaging_menu.js:0
+#, python-format
+msgid ""
+"TigernixERP will not have the permission to send native notifications on this "
+"device."
+msgstr "TigernixERP не матиме дозволу надсилати рідні сповіщення на цьому пристрої."
+
+#. module: mail_bot
+#: model:ir.model.fields,field_description:mail_bot.field_res_users__tigernixbot_state
+msgid "TigernixERPBot Status"
+msgstr "Статус TigernixERPBot "
+
+#. module: mail_bot
+#. openerp-web
+#: code:addons/mail_bot/static/src/js/mailbot_service.js:0
+#, python-format
+msgid "TigernixERPBot has a request"
+msgstr "TigernixERPBot має запит"
+
+#. module: mail_bot
+#: model:ir.model.fields.selection,name:mail_bot.selection__res_users__tigernixbot_state__onboarding_attachement
+msgid "Onboarding attachement"
+msgstr "Вхідне прикріплення"
+
+#. module: mail_bot
+#: model:ir.model.fields.selection,name:mail_bot.selection__res_users__tigernixbot_state__onboarding_command
+msgid "Onboarding command"
+msgstr "Вхідна команда"
+
+#. module: mail_bot
+#: model:ir.model.fields.selection,name:mail_bot.selection__res_users__tigernixbot_state__onboarding_emoji
+msgid "Onboarding emoji"
+msgstr "Вбудовані emoji"
+
+#. module: mail_bot
+#: model:ir.model.fields.selection,name:mail_bot.selection__res_users__tigernixbot_state__onboarding_ping
+msgid "Onboarding ping"
+msgstr "Вбудовані ping"
+
+#. module: mail_bot
+#. openerp-web
+#: code:addons/mail_bot/static/src/js/systray_messaging_menu.js:0
+#, python-format
+msgid "Permission denied"
+msgstr "Дозвіл відхилено"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "Pong."
+msgstr "Свиснув."
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Sorry I'm sleepy. Or not! Maybe I'm just trying to hide my unawareness of "
+"human language...<br/>I can show you features if you write"
+msgstr ""
+"Вибачте, що я сонний. Чи ні! Можливо, я просто намагаюся приховати своє "
+"незнання людської мови...<br/>Я можу показати вам функції, якщо ви напишете"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Sorry, I am not listening. To get someone's attention, <b>ping him</b>. "
+"Write \"@odoobot\" and select me."
+msgstr ""
+"На жаль, я не слухаю. Щоби привернути чиюсь увагу, <b>свисніть йому</b>. "
+"Напишіть \"@odoobot\" та виберіть мене."
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "That's not nice! I'm a bot but I have feelings... 💔"
+msgstr "Це не добре! Я бот, але у мене є почуття... 💔"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"To <b>send an attachment</b>, click the 📎 icon on the right, and select a "
+"file."
+msgstr ""
+"Щоб <b>надіслати прикріплення</b>, натисніть на 📎 іконку справа, та виберіть"
+" файл."
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "To start, try to send me an emoji :)"
+msgstr "Щоби розпочати, спробуйте надіслати смайлик :)"
+
+#. module: mail_bot
+#: model:ir.model,name:mail_bot.model_res_users
+msgid "Users"
+msgstr "Користувачі"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Wow you are a natural!<br/>Ping someone to grab its attention with "
+"@nameoftheuser. <b>Try to ping me using @TigernixERPBot</b> in a sentence."
+msgstr ""
+"Вау, ви справжні!<br/>Приверніть чиюсь увагу з @nameoftheuser. <b>Спробуйте "
+"покликати мене, використовуючи @TigernixERPBot</b> у реченні."
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Yep, I am here! 🎉 <br/>You finished the tour, you can <b>close this chat "
+"window</b>. Enjoy discovering TigernixERP."
+msgstr ""
+"Так, я тут! 🎉 <br/>Ви завершили тур, ви можете <b>закрити це вікно чату</b>."
+" Насолоджуйтесь TigernixERP."
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "Yep, TigernixERPBot is in the place!"
+msgstr "Так, TigernixERPBot на місці!"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "fuck"
+msgstr "дідько"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "help"
+msgstr "допомога"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "i love you"
+msgstr "ти мені подобаєшся"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "love"
+msgstr "подобається"
+
+#. module: mail_bot
+#: code:addons/mail_bot/models/mail_bot.py:0
+#: code:addons/mail_bot/models/mail_bot.py:0
+#: code:addons/mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "start the tour"
+msgstr "розпочати тур"

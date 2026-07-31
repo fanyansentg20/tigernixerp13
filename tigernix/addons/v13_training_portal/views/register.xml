@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tigernix>
+<!-- Assets -->
+<template id="register" name="Register Form">
+  
+<!-- <link rel="stylesheet" href="https://jsdelivr.net" /> -->
+
+    <t t-call-assets="website.assets_frontend" />
+    <script type="text/javascript" src="/v13_training_portal/static/src/js/views/register.js"/>
+      <!-- <p>Hello World</p>
+      <p t-esc="message" />
+      <p t-esc="partner.name" />
+      <select name="title">
+        <option value="">Select Title</option>
+        <t t-foreach="title_object" t-as="title" >
+          <option t-value="title.id">
+            <p t-esc="title.shortcut" />
+          </option>
+        </t>
+      </select> -->
+      <!-- <t t-call="web._assets_helpers"/> -->
+        <div class="vh-100 d-flex align-items-center justify-content-center">
+          <div class="card shadow-sm col-12 col-sm-7 col-md-6 col-lg-3 col-xxl-3">
+              <div class="card-header bg-primary text-white">
+                  <h4 class="mb-0">Create Account</h4>
+              </div>
+              <div class="card-body">
+                  <form id="registerForm" novalidate="novalidate" onsubmit="onSubmit(event)">
+                      
+                      <!-- Username Field -->
+                      <div class="mb-3">
+                          <label for="name" class="form-label">Name</label>
+                          <input type="text" id="name" name="name" class="form-control" required="true" />
+                          <div id="name-err" class="error-feedback"></div>
+                      </div>
+
+                      <!-- Email Field -->
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Email Address</label>
+                          <input type="email" id="email" name="email" class="form-control" required="true" />
+                          <div id="email-err" class="error-feedback"></div>
+                      </div>
+
+                      <!-- Password Field -->
+                      <div class="mb-3">
+                          <label for="password" class="form-label">Password</label>
+                          <input type="password" id="password" name="password" class="form-control" required="true" />
+                          <div id="password-err" class="error-feedback"></div>
+                      </div>
+
+                      <!-- Confirm Password Field -->
+                      <div class="mb-3">
+                          <label for="confirmPassword" class="form-label">Confirm Password</label>
+                          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required="true" />
+                          <div id="password-err" class="error-feedback"></div>
+                      </div>
+
+                      <!-- Submit Button -->
+                      <button class="btn btn-primary w-100">Register</button>
+                  </form>
+              </div>
+          </div>
+        </div>
+      <!-- </t> -->
+    <!-- </t> -->
+</template>
+</tigernix>

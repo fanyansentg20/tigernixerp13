@@ -1,0 +1,15 @@
+
+.o_notification_manager {
+    @include o-position-absolute($nav-link-height, 0);
+    position: fixed;
+    //Modified 06 Oct 23, change to 10000 because the o_technical_modal has z-index 2001
+    /*z-index: ($zindex-modal + $zindex-popover) / 2;  //Original*/
+    z-index: 10000; //modified
+    //-------------------------------
+    width: $toast-max-width;
+    max-width: 100%;
+
+    .o_notification {
+        width: 100%;
+    }
+}

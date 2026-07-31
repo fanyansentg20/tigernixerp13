@@ -1,0 +1,13 @@
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-size-base: $o-theme-font-size-base !default;
+
+
+.btn-primary{
+    color: $tigernix-text-btn-color !important;
+}
+.btn-secondary{
+    color: $tigernix-text-btn-color !important;
+}

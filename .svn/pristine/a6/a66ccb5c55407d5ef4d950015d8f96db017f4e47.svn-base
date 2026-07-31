@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=TigernixERP13 - Server
+Comment=TigernixERP13
+Exec="/home/ria/ERP/ERP13/tigernixerp13/tigernix-bin" --limit-time-real 36000 --http-port=8099
+Icon=python3
+Terminal=true
+Type=Application
+Categories=Application;
+Name[en_US]=TigernixERP13
+Comment[en_US]=TigernixERP13
+

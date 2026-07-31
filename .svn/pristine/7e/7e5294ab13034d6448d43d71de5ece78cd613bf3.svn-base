@@ -1,0 +1,67 @@
+# Translation of TigernixERP Server.
+# This file contains the translation of the following modules:
+# 	* im_livechat_mail_bot
+# 
+# Translators:
+# JH CHOI <hwangtog@gmail.com>, 2019
+# Link Up링크업 <linkup.way@gmail.com>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: TigernixERP Server saas~12.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-26 08:16+0000\n"
+"PO-Revision-Date: 2019-08-26 09:11+0000\n"
+"Last-Translator: Link Up링크업 <linkup.way@gmail.com>, 2019\n"
+"Language-Team: Korean (https://www.transifex.com/tigernix/teams/41243/ko/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: im_livechat_mail_bot
+#: code:addons/im_livechat_mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Good, you can customize canned responses in the live chat "
+"application.<br/><br/><b>It's the end of this overview</b>, enjoy "
+"discovering TigernixERP!"
+msgstr ""
+"좋습니다. 실시간 채팅 응용 프로그램에서 미리 준비된 답변을 맞춤 설정할 수 있습니다. 그것이 이 미리보기의 끝입니다. TigernixERP를 "
+"발견하고 즐기십시오!"
+
+#. module: im_livechat_mail_bot
+#: model:ir.model,name:im_livechat_mail_bot.model_mail_bot
+msgid "Mail Bot"
+msgstr "메일 봇"
+
+#. module: im_livechat_mail_bot
+#: code:addons/im_livechat_mail_bot/models/mail_bot.py:0
+#, python-format
+msgid ""
+"Not sure wat you are doing. Please press : and wait for the propositions. "
+"Select one of them and press enter."
+msgstr ""
+"당신이 무엇을 하고 있는지 확실하지 않습니다. : 누르고 제안을 기다리십시오. 둘 중 하나를 선택하고 Enter 키를 누릅니다."
+
+#. module: im_livechat_mail_bot
+#: model:ir.model.fields,field_description:im_livechat_mail_bot.field_res_users__tigernixbot_state
+msgid "TigernixERPBot Status"
+msgstr "TigernixERP봇 상태"
+
+#. module: im_livechat_mail_bot
+#: model:ir.model.fields.selection,name:im_livechat_mail_bot.selection__res_users__tigernixbot_state__onboarding_canned
+msgid "Onboarding canned"
+msgstr "온보딩 사전준비물"
+
+#. module: im_livechat_mail_bot
+#: code:addons/im_livechat_mail_bot/models/mail_bot.py:0
+#, python-format
+msgid "That's me! 🎉<br/>Try to type \":\" to use canned responses."
+msgstr "그게 나야! 🎉<br/>미리 저장된 응답을 사용하려면 \":\"을 입력하십시오."
+
+#. module: im_livechat_mail_bot
+#: model:ir.model,name:im_livechat_mail_bot.model_res_users
+msgid "Users"
+msgstr "사용자"

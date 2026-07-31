@@ -1,0 +1,20 @@
+Run SH
+chmod +x Tigernix-Install.sh
+./Tigernix-Install.sh
+
+
+START ERP13
+./tigernix-bin --http-port=8069
+./tigernix-bin --limit-time-real 36000 --http-port=8069
+
+
+AUTO START FILE FOR SERVER
+File name : tigernixerp13
+> Move tigernixerp13 to /etc/init.d and dont forget to makesure daemon, configfile and user are correct.
+> sudo /lib/systemd/systemd-sysv-install enable tigernixerp11
+> systemctl daemon-reload
+> sudo systemctl start tigernixerp13
+
+
+--limit-time-real will kill any process if run over 36000 seconds
+including when upgrade module, import data, etc

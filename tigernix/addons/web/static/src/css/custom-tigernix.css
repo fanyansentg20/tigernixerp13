@@ -1,0 +1,78 @@
+/* 
+    #f3a32a change with $o-enterprise-color in web/static/src/scss/primary_variables.scss
+    #0c0c0c change with $o-community-color in web/static/src/scss/primary_variables.scss
+*/
+
+
+.custom-tigernix-hover {
+    color: #0c0c0c;
+    text-decoration: unset;
+    font-size: 14px;
+    padding-bottom: 7px;
+}
+
+.custom-tigernix-hover:hover {
+    color: #f3a32a !important;
+    background-color: #0c0c0c;
+    text-decoration: unset;
+    font-size: 14px;
+}
+
+.btn-link-tigernix {
+    color: #ff9900;
+    margin: 2px;
+}
+
+.btn-link-tigernix:hover {
+    color: #eb910a;
+}
+
+.text-warning {
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+.btn-tigernix {
+    border-radius: 0;
+    margin: 5px;
+    background-color: #ff9900;
+    border-color: #ff9900;
+    color: white;
+    border-radius: 2px;
+}
+
+.btn-tigernix:hover:active:focus:visited {
+    background-color: #e69213;
+    border-color: #e69213;
+}
+
+.manage-db {
+    margin: 30px;
+    color: #0c0c0c;
+    margin-bottom: 10px;
+}
+
+.manage-db {
+  margin: 30px;
+  color: #0c0c0c;
+  margin-bottom: 10px;
+}
+
+.manage-db:hover {
+    text-decoration: none;
+    color: #f3a32a;
+}
+
+.tigernix-logo {
+    margin: 30px;
+}
+
+.tigernix-footer-block { 
+    margin: 30px; 
+}
+.tigernix-footer-block > a { 
+    color: #000; 
+}
+.tigernix-footer-block > a:hover { 
+    text-decoration: none; color: #ff9900; font-weight: 500; 
+}

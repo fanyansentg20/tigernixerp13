@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tigernix>
+    <record id="base.main_company" model="res.company">
+        <field name="social_twitter">https://twitter.com/tigernixcompany</field>
+        <field name="social_facebook">https://www.facebook.com/tigernix.singapore/</field>
+        <field name="social_linkedin">https://www.linkedin.com/company/tigernix</field>
+        <field name="social_youtube">https://www.youtube.com/channel/UCwMo9YoK4nm4CT5ZOeGuoAQ</field>
+        <field name="social_github">https://tigernix.com/</field>
+        <field name="social_instagram">https://tigernix.com/</field>
+    </record>
+</tigernix>

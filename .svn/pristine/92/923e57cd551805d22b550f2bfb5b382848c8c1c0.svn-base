@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tigernix>
+    <data>
+        <record id="base.partner_root" model="res.partner">
+            <field name="name">TigernixERPBot</field>
+            <field name="email">TigernixERPbot@example.com</field>
+            <field name="image_1920" type="base64" file="mail/static/src/img/tigernixbot.png"/>
+        </record>
+    </data>
+</tigernix>

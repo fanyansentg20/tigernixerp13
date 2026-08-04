@@ -20,7 +20,10 @@
     ],
     'installable': True,
     'data': [
-        'views/register.xml'
+        'views/register.xml',
+        'views/login.xml',
+        'views/dashboard.xml',
+        'views/assets.xml',
         # 'data/website_data.xml',
         # 'data/website_visitor_cron.xml',
         # 'security/website_security.xml',

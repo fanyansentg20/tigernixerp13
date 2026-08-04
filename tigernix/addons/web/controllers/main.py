@@ -917,7 +917,6 @@ class Home(http.Controller):
 
                 redirect_response.headers["Access-Control-Allow-Credentials"] = "true"
                 redirect_response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
-                redirect_response.headers['X-CUYY'] = '123'
                 
                 print("RETURNING REDIRECT")
                 print(dict(redirect_response.headers))

@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+:root {
+  --violet: #5b4f90;
+  --gray-light: #eff2f6;
+  --top-navbar-height: 90px;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background-color: #eff2f6;
+}
+
+/* offcanvas and navbar */
+
+.offcanvas {
+  width: 270px;
+}
+
+/* navigation */
+.top-nav-icon {
+  border-radius: 400px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4px;
+  background-color: #eff2f6;
+}
+.sidebar-link,
+.top-nav-link {
+  color: var(--violet) !important;
+  display: inline-flex;
+  align-items: center;
+}
+.sidebar-link {
+  display: flex;
+}
+.sidebar-link:hover {
+  background-color: var(--gray-light);
+}
+
+.sidebar_image_icon {
+  font-size: 3rem;
+  margin-right: 0.5rem;
+  color: var(--violet);
+}
+.status-dot.online {
+  background-color: #0ca940;
+}
+.status-dot {
+  margin-right: 4px;
+  height: 10px;
+  display: inline-block;
+  width: 10px;
+  border-radius: 400px;
+}
+
+.sidebar-link .icon {
+  font-size: 1.5rem;
+  margin-right: 0.25rem;
+}
+.top-nav-profile-pic {
+  height: 36px;
+  width: 36px;
+  border-radius: 4000px;
+  object-fit: contain;
+  margin-right: 4px;
+}
+.brand-title {
+  font-weight: 700;
+  color: var(--violet);
+  font-size: 1.8rem;
+}
+.brand-subtitle {
+  font-size: 0.85rem;
+  color: var(--violet);
+}
+.sidebar-links {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-violet {
+  color: var(--violet);
+}
+main {
+  margin-top: 90px;
+}
+
+.border-violet {
+  border-color: var(--violet);
+}
+.border-top-thick {
+  border-top: 0.2rem solid var(--violet);
+}
+.btn-outline-violet {
+  border-color: var(--violet);
+  color: var(--violet);
+}
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+  .mt-navbar-adjust {
+    height: calc(100% - var(--top-navbar-height));
+    margin-top: var(--top-navbar-height);
+  }
+  main {
+    margin-left: 270px;
+  }
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+  .offcanvas {
+    transform: none;
+    visibility: visible !important;
+    transition: none !important;
+  }
+  .offcanvas-header {
+    display: none;
+  }
+}
+
+/********************************/
+.pens_link {
+  position: fixed;
+  bottom: 56px;
+  right: 56px;
+  margin: auto;
+  display: inline-flex;
+  font-size: 2rem;
+  text-decoration: none;
+  border-radius: 500px;
+  background-color: #212121;
+  color: #ffffff;
+  height: 56px;
+  width: 56px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  animation: animate 1500ms ease infinite;
+  @keyframes animate {
+    0%,
+    100% {
+      transform: translatey(-10%);
+    }
+    50% {
+      transform: translatey(10%);
+    }
+  }
+}
+
+/*******************************/

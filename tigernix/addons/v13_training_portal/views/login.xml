@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tigernix>
+  <!-- Assets -->
+  <template id="login" name="Login Form">
+
+    <!-- <link rel="stylesheet" href="https://jsdelivr.net" /> -->
+
+    <t t-call-assets="website.assets_frontend" />
+    <script src="https://unpkg.com/zod@3.22.4/lib/index.umd.js" />
+    <script type="text/javascript" src="/v13_training_portal/static/src/js/views/login.js" />
+    <!-- <p>Hello World</p>
+      <p t-esc="message" />
+      <p t-esc="partner.name" />
+      <select name="title">
+        <option value="">Select Title</option>
+        <t t-foreach="title_object" t-as="title" >
+          <option t-value="title.id">
+            <p t-esc="title.shortcut" />
+          </option>
+        </t>
+      </select> -->
+    <!-- <t t-call="web._assets_helpers"/> -->
+    <t t-call="website.layout">
+      <div class="vh-100 d-flex align-items-center justify-content-center">
+        <div class="card shadow-sm col-12 col-sm-7 col-md-6 col-lg-3 col-xxl-3">
+          <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Login</h4>
+          </div>
+          <div class="card-body">
+            <div id="loginAlertPlaceholder"></div>
+            <form id="loginForm" novalidate="novalidate" onsubmit="onSubmit(event)">
+
+              <!-- Email Field -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required="true" />
+                <div id="email-err" class="invalid-feedback"></div>
+              </div>
+
+              <!-- Password Field -->
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control"
+                  required="true" />
+                <div id="password-err" class="invalid-feedback"></div>
+              </div>
+
+              <!-- Submit Button -->
+              <button id="loginSubmitBtn" class="btn btn-primary w-100">Login</button>
+
+              <!-- Register Link -->
+              <div class="text-center mt-3">
+                <span>Don't have an account? </span>
+                <a href="/training/register" class="text-decoration-none">
+                  Register
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </t>
+    <!-- </t> -->
+    <!-- </t> -->
+  </template>
+</tigernix>

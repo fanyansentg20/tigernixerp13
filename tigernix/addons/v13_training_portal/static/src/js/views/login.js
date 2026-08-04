@@ -1,33 +1,14 @@
 const { z } = Zod;
 
 const baseSchema = z.object({
-  name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email address").min(1, "Email is required"),
-  password: z
-    .string()
-    .regex(/[a-z]/, "Must contain lowercase letter")
-    .regex(/[A-Z]/, "Must contain uppercase letter")
-    .regex(/[0-9]/, "Must contain number")
-    .regex(/[!@#$%^&*]/, "Must contain special character")
-    .min(8, "Password must be at least 8 characters")
-    .min(1, "Password is required"),
-  confirmPassword: z.string().min(1, "Confirm password is required"),
+  password: z.string().min(1, "Password is required"),
 });
-
-const registerSchema = baseSchema.refine(
-  (data) => data.password === data.confirmPassword,
-  {
-    path: ["confirmPassword"],
-    message: "Passwords must match",
-  },
-);
 
 function getFormData() {
   return {
-    name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     password: document.getElementById("password").value,
-    confirmPassword: document.getElementById("confirmPassword").value,
   };
 }
 
@@ -67,16 +48,6 @@ function setValid(field) {
   }
 }
 
-const confirmPasswordValidate = (e) => {
-  const password = document.getElementById("password").value;
-  const confirmPassword = e.target.value;
-  if (password !== confirmPassword) {
-    setError("confirmPassword", "Passwords must match");
-    return;
-  }
-  clearError("confirmPassword");
-};
-
 const onInputChange = async (e) => {
   const field = e.target.name;
   const value = e.target.value;
@@ -89,14 +60,10 @@ const onInputChange = async (e) => {
   } else {
     clearError(field);
   }
-
-  if (field === "confirmPassword") {
-    confirmPasswordValidate(e);
-  }
 };
 
 const renderAlert = (msgText, alertType) => {
-  const alertPlaceholder = document.getElementById("registerAlertPlaceholder");
+  const alertPlaceholder = document.getElementById("loginAlertPlaceholder");
   const appendAlert = (message, type) => {
     const wrapper = document.createElement("div");
     const alertElement = [
@@ -115,7 +82,7 @@ const renderAlert = (msgText, alertType) => {
 };
 
 const clearAlert = () => {
-  const alertPlaceholder = document.getElementById("registerAlertPlaceholder");
+  const alertPlaceholder = document.getElementById("loginAlertPlaceholder");
   alertPlaceholder.innerHTML = "";
 };
 
@@ -138,7 +105,6 @@ const removeSpinner = (elementId, originalText) => {
 
 const onSubmit = async (e) => {
   e.preventDefault();
-
   clearErrors();
 
   const result = baseSchema.safeParse(getFormData());
@@ -151,8 +117,6 @@ const onSubmit = async (e) => {
     return;
   }
 
-  const { confirmPassword, ...otherFormData } = getFormData();
-
   clearAlert();
   appendSpinner("loginSubmitBtn");
   const response = await fetch("/training_v13/login_user", {
@@ -160,7 +124,7 @@ const onSubmit = async (e) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(otherFormData),
+    body: JSON.stringify(getFormData()),
   });
 
   const responseBody = await response.json();
@@ -168,13 +132,10 @@ const onSubmit = async (e) => {
 
   if (loginResult?.error) {
     renderAlert(loginResult?.error?.message, "danger");
-    removeSpinner("loginSubmitBtn", "Register");
+    removeSpinner("loginSubmitBtn", "Login");
     return;
   } else {
-    removeSpinner("loginSubmitBtn", "Register");
-    location.href = "/training/login";
+    removeSpinner("loginSubmitBtn", "Login");
+    location.href = "/training/dashboard";
   }
-
-  console.log("VALID ✅");
-  console.log(getFormData());
 };

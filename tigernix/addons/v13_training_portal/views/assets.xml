@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<tigernix>
-  <!-- Assets -->
-  <template id="assets_training" name="Training Assets">
-    <t t-call-assets="website.assets_frontend" />
-    <link rel="stylesheet" type="text/scss"
-      href="/v13_training_portal/static/src/scss/views/dashboard.scss" />
-  </template>
-</tigernix>

@@ -22,8 +22,12 @@
     'data': [
         'views/register.xml',
         'views/login.xml',
+        'views/homepage.xml',
+        'views/layout.xml',
         'views/dashboard.xml',
-        'views/assets.xml',
+        'views/about.xml',
+        'views/users.xml',
+        'views/countries.xml',
         # 'data/website_data.xml',
         # 'data/website_visitor_cron.xml',
         # 'security/website_security.xml',

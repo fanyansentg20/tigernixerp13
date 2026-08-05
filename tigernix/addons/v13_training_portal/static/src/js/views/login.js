@@ -5,6 +5,12 @@ const baseSchema = z.object({
   password: z.string().min(1, "Password is required"),
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const parent = document.getElementById("loginContainer")?.parentElement;
+
+  parent?.style.setProperty("display", "flex", "important");
+});
+
 function getFormData() {
   return {
     email: document.getElementById("email").value,
@@ -136,6 +142,6 @@ const onSubmit = async (e) => {
     return;
   } else {
     removeSpinner("loginSubmitBtn", "Login");
-    location.href = "/training/dashboard";
+    location.href = "/";
   }
 };

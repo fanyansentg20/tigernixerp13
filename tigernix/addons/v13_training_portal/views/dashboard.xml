@@ -2,144 +2,59 @@
 <tigernix>
   <!-- Assets -->
   <template id="dashboard" name="Dashboard">
-    <t t-call-assets="v13_training_portal.assets_training" />
-    <script type="text/javascript" src="/v13_training_portal/static/src/js/views/dashboard.js" />
-    <!-- <p>Hello World</p>
-      <p t-esc="message" />
-      <p t-esc="partner.name" />
-      <select name="title">
-        <option value="">Select Title</option>
-        <t t-foreach="title_object" t-as="title" >
-          <option t-value="title.id">
-            <p t-esc="title.shortcut" />
-          </option>
-        </t>
-      </select> -->
-    <!-- <t t-call="web._assets_helpers"/> -->
-
-    <!-- </t> -->
-    <!-- </t> -->
-    <!-- top navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-xs fixed-top">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvas-sidebar">
-          <span class="navbar-toggler-icon" data-bs-target="#offcanvas-sidebar"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-          <div class="brand-title">Examination</div>
-          <div class="brand-subtitle">Examination Online Platform</div>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link top-nav-link active d-inline-flex align-items-center"
-                aria-current="page" href="#">
-                <span class="top-nav-icon p-2">
-                  <i class="las la-globe"></i>
-                  <span class="ms-2">en</span>
-                </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link top-nav-link h-100" href="#">Visit Site</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link top-nav-link h-100" href="#">
-                <i class="las la-user-circle"></i> Hi ! Admin </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link top-nav-link h-100" href="#">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- top navigation -->
-    <!-- offcanvas -->
-    <div class="offcanvas offcanvas-start bg-white text-white border-0 mt-navbar-adjust"
-      tabindex="-1" id="offcanvas-sidebar">
-      <div class="offcanvas-body p-0" id="sidebar-links-body">
-        <div class="d-flex px-3 align-items-center">
-          <div class="sidebar_image_icon">
-            <i class="las la-user-circle"></i>
+    <div class="card">
+      <div class="card-body">
+        <section class="container mb32">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h2>Dashboard</h2>
+              <p>Selamat datang di Training Portal.</p>
+            </div>
           </div>
-          <div class="w-100">
-            <div class="text-violet fw-bold">Admin</div>
-            <div class="small text-violet d-flex align-items-center">
-              <div class="status-dot online"></div> Online </div>
+        </section>
+
+        <section class="container">
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="card"
+                style="cursor: pointer;"
+                onclick="$('.list-group a[href=\'#users\']').tab('show'); return false;">
+                <div class="card-body text-center">
+                  <i class="bi bi-people-fill text-primary" style="font-size: 4rem;"></i>
+                  <h4 class="mt-3">Users</h4>
+                  <p>Lihat daftar pengguna.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card"
+                style="cursor: pointer;"
+                onclick="$('.list-group a[href=\'#countries\']').tab('show'); return false;">
+                <div class="card-body text-center">
+                  <i class="bi bi-globe text-primary" style="font-size: 4rem;"></i>
+                  <h4 class="mt-3">Countries</h4>
+                  <p>Lihat daftar negara.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card"
+                style="cursor: pointer;"
+                onclick="$('.list-group a[href=\'#about\']').tab('show'); return false;">
+                <div class="card-body text-center">
+                  <i class="bi bi-info-circle text-primary" style="font-size: 3.15rem;"></i>
+                  <h4 class="mt-3">About</h4>
+                  <p>Informasi tentang Training Portal.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
-        </div>
-        <div class="text-uppercase text-violet p-3 small border-bottom">
-          Main Navigation
-        </div>
-
-        <!--  links -->
-        <ul class="p-0 m-0 sidebar-links">
-          <li>
-            <a href="#" class="nav-link sidebar-link">
-              <span class="icon">
-                <i class="las la-paste"></i>
-              </span> Dashboard </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link sidebar-link">
-              <span class="icon">
-                <i class="lar la-user-circle"></i>
-              </span> Users </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link sidebar-link">
-              <span class="icon">
-                <i class="lar la-copy"></i>
-              </span> Categories </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link sidebar-link">
-              <span class="icon">
-                <i class="lar la-handshake"></i>
-              </span> Courses </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link sidebar-link">
-              <span class="icon">
-                <i class="lab la-first-order"></i>
-              </span> Orders </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link sidebar-link">
-              <span class="icon">
-                <i class="las la-pager"></i>
-              </span> Pages </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link sidebar-link">
-              <span class="icon">
-                <i class="lar la-newspaper"></i>
-              </span> Courses </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link sidebar-link">
-              <span class="icon">
-                <i class="lar la-paper-plane"></i>
-              </span> Push Notifications </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link sidebar-link">
-              <span class="icon">
-                <i class="las la-university"></i>
-              </span> Institutes </a>
-          </li>
-        </ul>
-
-        <!--   links   -->
+        </section>
       </div>
     </div>
-    <!-- offcanvas -->
   </template>
 </tigernix>

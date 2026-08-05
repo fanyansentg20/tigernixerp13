@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tigernix>
+  <template id="users" name="Users">
+    <div class="card">
+      <div class="card-body">
+
+        <h3>Users</h3>
+
+        <ul class="list-group">
+          <li class="list-group-item">Odoo Basic</li>
+          <li class="list-group-item">Odoo Development</li>
+          <li class="list-group-item">Website Builder</li>
+        </ul>
+
+      </div>
+    </div>
+  </template>
+</tigernix>

@@ -22,6 +22,12 @@ const registerSchema = baseSchema.refine(
   },
 );
 
+document.addEventListener("DOMContentLoaded", () => {
+  const parent = document.getElementById("registerContainer")?.parentElement;
+
+  parent?.style.setProperty("display", "flex", "important");
+});
+
 function getFormData() {
   return {
     name: document.getElementById("name").value,

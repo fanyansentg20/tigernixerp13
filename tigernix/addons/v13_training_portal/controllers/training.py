@@ -24,6 +24,12 @@ from tigernix.addons.portal.controllers.web import Home
 logger = logging.getLogger(__name__)
 
 class training(http.Controller):
+  @http.route('/', type='http', auth='public', website=True)
+  def homepage(self, **kw):
+    if not request.session.uid:
+      return werkzeug.utils.redirect('/training/login', 303)
+    return request.render('website.homepage')
+
   @http.route('/training/register', type='http', auth="public", website=True)
   def training_register(self, **kwargs):
     print("1asdhajskasjdkasd")
@@ -67,25 +73,3 @@ class training(http.Controller):
         # 'version': tigernix.service.common.exp_version()
     }
     return request.render('v13_training_portal.login', values)
-
-  @http.route('/training/dashboard', type='http', auth="public", website=True)
-  def training_dashboard(self, **kwargs):
-    print("1asdhajskasjdkasd")
-    partner_object = request.env['res.partner'].sudo().browse(47)
-    title_object = request.env['res.partner.title'].sudo().search([])
-    # try:
-    #     request.website.get_template('website.website_info').name
-    # except Exception as e:
-    #     return request.env['ir.http']._handle_exception(e, 404)
-    # Module = request.env['ir.module.module'].sudo()
-    # apps = Module.search([('state', '=', 'installed'), ('application', '=', True)])
-    # l10n = Module.search([('state', '=', 'installed'), ('name', '=like', 'l10n_%')])
-    values = {
-        'message': 'Permulaan',
-        'partner': partner_object,
-        'title_object': title_object,
-        # 'apps': apps,
-        # 'l10n': l10n,
-        # 'version': tigernix.service.common.exp_version()
-    }
-    return request.render('v13_training_portal.dashboard', values)

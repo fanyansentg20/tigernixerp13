@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tigernix>
+  <template id="about" name="About">
+    <div class="card">
+      <div class="card-body">
+
+        <h3>About</h3>
+
+        <p>
+          Informasi tentang Training Portal.
+        </p>
+
+      </div>
+    </div>
+  </template>
+</tigernix>

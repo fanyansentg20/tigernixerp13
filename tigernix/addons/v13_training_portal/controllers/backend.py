@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of TigernixERP. See LICENSE file for full copyright and licensing details.
 
+import json
+
 from tigernix import http
 from tigernix.http import request
 from tigernix.tools.translate import _
@@ -10,6 +12,7 @@ import werkzeug
 import werkzeug.exceptions
 import werkzeug.utils
 from werkzeug.urls import iri_to_uri
+from werkzeug.wrappers import Response
 
 db_monodb = http.db_monodb
 def abort_and_redirect(url):
@@ -219,3 +222,291 @@ class WebsiteBackend(http.Controller):
             }
  
         return {'success': True, 'user_id': uid}
+
+    @http.route('/training/list_users', type='http', auth='public', methods=['GET'], csrf=False)
+    def list_users(self, **kwargs):
+        """Public GET endpoint listing users, optionally filtered by name or email.
+ 
+        Query params:
+            search  -- optional text matched against name OR email (partial, case-insensitive)
+ 
+        Example:
+            GET /training/list_users
+            GET /training/list_users?search=jane
+        """
+        
+        if request.env.user._is_public():
+            return Response(
+                json.dumps({
+                    'error': {
+                    'title': 'Unauthorized',
+                    'message': 'Please login first.'
+                    }
+                }),
+                headers=[('Content-Type', 'application/json')],
+                status=401
+            )
+            
+        search = (kwargs.get('search') or '').strip()
+ 
+        domain = []
+        if search:
+            domain = ['|', ('name', 'ilike', search), ('email', 'ilike', search)]
+ 
+        users = request.env['res.users'].sudo().search(domain)
+        data = [{
+            'name': user.name,
+            'email': user.email,
+            'phone': user.phone if user.phone else None,
+            'mobile': user.mobile if user.mobile else None,
+            'company': user.company_id.name if user.company_id else None,
+            'city': user.city if user.city else None,
+            'country': user.country_id.name if user.country_id else None,
+            'last_login': user.login_date.isoformat() if user.login_date else None,
+            'create_date': user.create_date.isoformat() if user.create_date else None
+        } for user in users]
+ 
+        return Response(
+            json.dumps({'count': len(data), 'users': data}),
+            headers=[('Content-Type', 'application/json')],
+        )
+        
+    @http.route(
+        '/training/send_password_otp',
+        type='json',
+        auth='user',
+        csrf=False
+    )
+    def send_password_otp(self):
+        user = request.env.user
+        otp = user.generate_otp(
+            'change_password'
+        )
+
+        user.partner_id.message_post(
+            subject='Password Change OTP',
+            body=f'''
+                OTP Code: {otp.otp_code}
+
+                Valid for 5 minutes.
+            '''
+        )
+
+        return {
+            'success': True
+        }
+    
+    @http.route('/training/change_password', type='json', auth='user', csrf=False)
+    def change_password(self, otp_code, new_password, confirm_password):
+        user = request.env.user
+        
+        if new_password != confirm_password:
+            return {
+                'error': {
+                    'message':
+                    'Password confirmation mismatch.'
+                }
+            }
+
+        if not user.verify_otp(
+            otp_code,
+            'change_password'
+        ):
+            return {
+                'error': {
+                    'message': 'OTP invalid or expired'
+                }
+            }
+
+        user.sudo().write({
+            'password': new_password
+        })
+
+        return {
+            'success': True,
+            'message': 'Password updated succesfully'
+        }
+        
+    @http.route(
+        '/training/send_email_otp',
+        type='json',
+        auth='user',
+        csrf=False
+    )
+    def send_email_otp(
+        self,
+        new_email=None,
+        **kwargs
+    ):
+
+        user = request.env.user
+
+        existing = request.env[
+            'res.users'
+        ].sudo().search([
+            ('login', '=', new_email),
+            ('id', '!=', user.id)
+        ], limit=1)
+
+        if existing:
+            return {
+                'error': {
+                    'message':
+                    'Email already exists.'
+                }
+            }
+
+        otp = user.generate_otp(
+            'change_email',
+            target_email=new_email
+        )
+
+        user.partner_id.message_post(
+            subject='Change Email OTP',
+            body=f'''
+                OTP Code: {otp.otp_code}
+
+                New Email:
+                {new_email}
+            '''
+        )
+
+        return {
+            'success': True
+        }
+
+    @http.route(
+        '/training/change_email',
+        type='json',
+        auth='user',
+        csrf=False
+    )
+    def change_email(
+        self,
+        otp_code=None,
+        **kwargs
+    ):
+
+        user = request.env.user
+
+        otp = user.verify_otp(
+            otp_code,
+            'change_email'
+        )
+
+        if not otp:
+            return {
+                'error': {
+                    'message':
+                    'OTP invalid or expired.'
+                }
+            }
+
+        user.sudo().write({
+            'login': otp.target_email,
+            'email': otp.target_email
+        })
+
+        return {
+            'success': True,
+            'email': otp.target_email
+        }
+
+    @http.route('/training/current_user', type='json', auth='user', csrf=False)
+    def current_user(self):
+        user = request.env.user
+
+        return {
+            'id': user.id,
+            'name': user.name,
+            'email': user.email,
+            'phone': user.phone,
+            'mobile': user.mobile,
+            'city': user.city,
+            'company': user.company_id.name if user.company_id else None,
+        }
+
+    @http.route(
+        '/training/send_profile_otp',
+        type='json',
+        auth='user',
+        csrf=False
+    )
+    def send_profile_otp(
+        self,
+        name=None,
+        phone=None,
+        mobile=None,
+        city=None,
+        **kwargs
+    ):
+
+        user = request.env.user
+
+        otp = user.generate_otp(
+            'update_profile'
+        )
+
+        otp.sudo().write({
+            'pending_data': json.dumps({
+                'name': name,
+                'phone': phone,
+                'mobile': mobile,
+                'city': city,
+            })
+        })
+
+        mail = request.env['mail.mail'].sudo().create({
+            'subject': 'Profile Update OTP',
+            'email_to': user.email,
+            'body_html': f'''
+                <h3>Your OTP</h3>
+                <p>{otp.otp_code}</p>
+                <p>Expires in 5 minutes</p>
+            '''
+        })
+
+        mail.send()
+
+        return {
+            'success': True
+        }
+    
+    @http.route(
+        '/training/update_profile',
+        type='json',
+        auth='user',
+        csrf=False
+    )
+    def update_profile(
+        self,
+        otp_code=None,
+        **kwargs
+    ):
+
+        user = request.env.user
+
+        otp = user.verify_otp(
+            otp_code,
+            'update_profile'
+        )
+
+        if not otp:
+            return {
+                'error': {
+                    'message':
+                    'Invalid or expired OTP.'
+                }
+            }
+
+        vals = json.loads(
+            otp.pending_data or '{}'
+        )
+
+        user.sudo().write(vals)
+
+        return {
+            'success': True,
+            'message':
+            'Profile updated successfully.'
+        }

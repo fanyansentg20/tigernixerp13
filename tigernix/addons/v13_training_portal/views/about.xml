@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tigernix>
   <template id="about" name="About">
-    <div class="card">
+    <div class="card flex-fill">
       <div class="card-body">
 
         <h3>About</h3>
 
         <p>
-          Informasi tentang Training Portal.
+          Selamat datang di Training Portal. Aplikasi ini merupakan portal sederhana
+          yang digunakan untuk mengelola dan menampilkan data master dalam sistem.
+        </p>
+
+        <p>
+          Saat ini portal menyediakan beberapa fitur utama:
+        </p>
+
+        <ul>
+          <li><strong>Dashboard</strong> - Menampilkan ringkasan informasi sistem.</li>
+          <li><strong>Countries</strong> - Mengelola dan melihat daftar negara.</li>
+          <li><strong>User Profile</strong> - Mengelola dan melihat daftar pengguna.</li>
+        </ul>
+
+        <p>
+          Portal ini dibuat menggunakan framework TigernixERP sebagai bagian dari
+          implementasi dan pembelajaran pengembangan aplikasi berbasis web menggunakan Odoo Python
+          Xml.
+        </p>
+
+        <hr />
+
+        <p class="text-muted">
+          Version 1.0
         </p>
 
       </div>

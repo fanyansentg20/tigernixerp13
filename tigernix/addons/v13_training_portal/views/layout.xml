@@ -2,10 +2,11 @@
   <template id="training_layout" name="Training Layout"
     inherit_id="website.layout">
 
-    <xpath expr="." position="inside">
+    <xpath expr="//head" position="inside">
+      <script src="https://unpkg.com/zod@3.22.4/lib/index.umd.js" />
       <script type="text/javascript" src="/v13_training_portal/static/src/js/views/global.js" />
       <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></link>
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
       <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
     </xpath>
 

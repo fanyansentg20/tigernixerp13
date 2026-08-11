@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tigernix>
   <template id="users" name="Users">
-    <div class="card">
-      <div class="card-body">
+    <script type="text/javascript" src="/v13_training_portal/static/src/js/views/users.js" />
 
-        <h3>Users</h3>
+    <div class="card flex-fill">
+      <div class="card-body d-flex flex-column justify-content-between">
+        <div class="d-flex flex-row justify-content-between">
+          <h3>Users</h3>
+          <input type="email" class="form-control w-50" id="searchUsersInput"
+            placeholder="Search Users" oninput="searchUsers(event)" />
+        </div>
 
-        <ul class="list-group">
-          <li class="list-group-item">Odoo Basic</li>
-          <li class="list-group-item">Odoo Development</li>
-          <li class="list-group-item">Website Builder</li>
-        </ul>
+        <div id="usersTable" style="height: 85%"></div>
 
       </div>
     </div>

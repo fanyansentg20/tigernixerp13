@@ -160,8 +160,8 @@ const onSubmit = async (e) => {
   const { confirmPassword, ...otherFormData } = getFormData();
 
   clearAlert();
-  appendSpinner("loginSubmitBtn");
-  const response = await fetch("/training_v13/login_user", {
+  appendSpinner("registerSubmitBtn");
+  const response = await fetch("/training_v13/register_new_user", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -170,15 +170,15 @@ const onSubmit = async (e) => {
   });
 
   const responseBody = await response.json();
-  const { result: loginResult } = responseBody;
+  const { result: registerResult } = responseBody;
 
-  if (loginResult?.error) {
-    renderAlert(loginResult?.error?.message, "danger");
-    removeSpinner("loginSubmitBtn", "Register");
+  if (registerResult?.error) {
+    renderAlert(registerResult?.error?.message, "danger");
+    removeSpinner("registerSubmitBtn", "Register");
     return;
   } else {
-    removeSpinner("loginSubmitBtn", "Register");
-    location.href = "/training/login";
+    removeSpinner("registerSubmitBtn", "Register");
+    location.href = "/";
   }
 
   console.log("VALID ✅");

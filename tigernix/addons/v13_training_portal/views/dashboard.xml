@@ -2,7 +2,7 @@
 <tigernix>
   <!-- Assets -->
   <template id="dashboard" name="Dashboard">
-    <div class="card">
+    <div class="card flex-fill">
       <div class="card-body">
         <section class="container mb32">
           <div class="row">
@@ -14,7 +14,7 @@
         </section>
 
         <section class="container">
-          <div class="row">
+          <div class="row training-row">
 
             <div class="col-md-4">
               <div class="card"

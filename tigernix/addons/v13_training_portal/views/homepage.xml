@@ -3,20 +3,17 @@
 
   <template id="training_portal_homepage"
     inherit_id="website.homepage">
-
     <xpath expr="//div[@id='wrap']" position="replace">
-
-      <div id="wrap">
-
+      <script type="text/javascript" src="/v13_training_portal/static/src/js/views/homepage.js" />
+      <div id="trainingWrapper" class="d-flex flex-column flex-fill">
         <section class="py-4 bg-primary text-white">
           <div class="container">
             <h1 class="mb-0">Training Portal</h1>
           </div>
         </section>
 
-        <section class="container py-4">
-          <div class="row">
-
+        <section class="container d-flex flex-fill py-4">
+          <div class="row flex-fill training-row">
             <!-- Sidebar Menu -->
             <div class="col-md-3">
               <div class="list-group">
@@ -24,13 +21,13 @@
                   data-toggle="tab">
                   Dashboard
                 </a>
-                <a href="#users" class="list-group-item list-group-item-action"
-                  data-toggle="tab">
-                  Users
-                </a>
                 <a href="#countries" class="list-group-item list-group-item-action"
                   data-toggle="tab">
                   Countries
+                </a>
+                <a href="#users" class="list-group-item list-group-item-action"
+                  data-toggle="tab">
+                  User Profile
                 </a>
                 <a href="#about" class="list-group-item list-group-item-action"
                   data-toggle="tab">
@@ -41,29 +38,30 @@
             </div>
 
             <!-- Content -->
-            <div class="col-md-9">
-              <div class="tab-content">
+            <div class="col-md-9 d-flex">
+              <div id="trainingContent" class="tab-content d-flex flex-fill">
 
                 <!-- Dashboard -->
-                <div class="tab-pane fade show active"
+                <div class="tab-pane fade flex-fill show active"
                   id="dashboard">
                   <t t-call="v13_training_portal.dashboard" />
                 </div>
 
                 <!-- Users -->
-                <div class="tab-pane fade"
+                <div class="tab-pane fade flex-fill"
                   id="users">
+                  <!-- <t t-call="v13_training_portal.profile" /> -->
                   <t t-call="v13_training_portal.users" />
                 </div>
 
                 <!-- Countries -->
-                <div class="tab-pane fade"
+                <div class="tab-pane fade flex-fill"
                   id="countries">
                   <t t-call="v13_training_portal.countries" />
                 </div>
 
                 <!-- About -->
-                <div class="tab-pane fade"
+                <div class="tab-pane fade flex-fill"
                   id="about">
                   <t t-call="v13_training_portal.about" />
                 </div>

@@ -5,7 +5,9 @@
 
     <!-- <link rel="stylesheet" href="https://jsdelivr.net" /> -->
     <script src="https://unpkg.com/zod@3.22.4/lib/index.umd.js" />
-    <script type="text/javascript" src="/v13_training_portal/static/src/js/views/login.js" />
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/v13_training_portal/static/src/js/views/login.js" />
+    </xpath>
     <!-- <p>Hello World</p>
       <p t-esc="message" />
       <p t-esc="partner.name" />
@@ -19,8 +21,9 @@
       </select> -->
     <!-- <t t-call="web._assets_helpers"/> -->
     <t t-call="v13_training_portal.training_layout">
-      <div id="loginContainer" class="d-flex flex-fill align-items-center justify-content-center">
-        <div class="card shadow-sm col-12 col-sm-7 col-md-6 col-lg-3 col-xxl-3">
+      <div id="loginContainer"
+        class="d-flex flex-fill align-items-center justify-content-center mx-4 my-5 py-5">
+        <div class="card shadow-sm training-card">
           <div class="card-header bg-primary text-white">
             <h4 class="mb-0">Login</h4>
           </div>
@@ -43,6 +46,20 @@
                 <div id="password-err" class="invalid-feedback"></div>
               </div>
 
+              <!-- reCAPTCHA Field -->
+              <div class="my-4 d-flex justify-content-center">
+                <!-- The reCAPTCHA widget -->
+                <!-- <div class="g-recaptcha"
+                data-sitekey="6LcL6qItAAAAAOBLhyZfPdKXkka9y3jvQdwjxkqV"></div> -->
+
+                <!-- reCAPTCHA widget for development test only -->
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                >
+                </div>
+              </div>
+
               <!-- Submit Button -->
               <button id="loginSubmitBtn" class="btn btn-primary w-100">Login</button>
 
@@ -51,6 +68,13 @@
                 <span>Don't have an account? </span>
                 <a href="/training/register" class="text-decoration-none">
                   Register
+                </a>
+              </div>
+
+              <!-- Forgot Password Link -->
+              <div class="text-center mt-3">
+                <a href="/training/forgot-password" class="text-decoration-none">
+                  Forgot Password?
                 </a>
               </div>
             </form>

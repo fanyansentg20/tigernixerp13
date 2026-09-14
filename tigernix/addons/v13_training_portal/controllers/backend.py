@@ -71,7 +71,6 @@ def ensure_db(redirect='/web/database/selector'):
     request.session.db = db
 
 class WebsiteBackend(http.Controller):
-
     @http.route('/website/fetch_dashboard_data', type="json", auth='user')
     def fetch_dashboard_data(self, website_id, date_from, date_to):
         Website = request.env['website']
@@ -130,98 +129,6 @@ class WebsiteBackend(http.Controller):
             'website_id': current_website.id,
         }).execute()
         return True
-        
-    @http.route('/training_v13/register_new_user', type='json', auth='public', csrf=False)
-    def register_new_user(self, name=None, email=None, password=None, **kwargs):
-        """Public endpoint to register a new portal user.
- 
-        Works with a standard JSON-RPC body:
-            {"jsonrpc": "2.0", "method": "call",
-             "params": {"name": ..., "email": ..., "password": ...}}
-        and also falls back to reading a flat JSON body (no "params" wrapper)
-        if one is sent with Content-Type: application/json.
-        """
-        if not name or not email or not password:
-            raw = request.jsonrequest or {}
-            name = name or raw.get('name')
-            email = email or raw.get('email')
-            password = password or raw.get('password')
- 
-        name = (name or '').strip()
-        email = (email or '').strip()
-        password = password or ''
- 
-        if not name or not email or not password:
-            return {
-                'error': {
-                    'title': _('Missing Information'),
-                    'message': _('Name, email, and password are required.'),
-                }
-            }
- 
-        existing_user = request.env['res.users'].sudo().search(
-            [('login', '=', email)], limit=1
-        )
-        if existing_user:
-            return {
-                'error': {
-                    'title': _('Registration Failed'),
-                    'message': _('An account with this email already exists.'),
-                }
-            }
- 
-        portal_group = request.env.ref('base.group_portal')
-        new_user = request.env['res.users'].sudo().create({
-            'name': name,
-            'login': email,
-            'email': email,
-            'password': password,
-            'groups_id': [(6, 0, [portal_group.id])],
-        })
- 
-        return {'success': True, 'user_id': new_user.id}
-
-    @http.route('/training_v13/login_user', type='json', auth='public', csrf=False)
-    def login_user(self, email=None, password=None, **kwargs):
-        """Public endpoint to log in a portal user.
- 
-        Works with a standard JSON-RPC body:
-            {"jsonrpc": "2.0", "method": "call",
-             "params": {"email": ..., "password": ...}}
-        and also falls back to reading a flat JSON body (no "params" wrapper)
-        if one is sent with Content-Type: application/json.
-        """
-        ensure_db()
-        if not email or not password:
-            raw = request.jsonrequest or {}
-            email = email or raw.get('email')
-            password = password or raw.get('password')
- 
-        email = (email or '').strip()
-        password = password or ''
- 
-        if not email or not password:
-            return {
-                'error': {
-                    'title': _('Missing Information'),
-                    'message': _('Email and password are required.'),
-                }
-            }
-        # Log the user in by setting the session
-        try:
-            uid = request.session.authenticate(request.session.db, email, password)
-        except AccessDenied:
-            uid = False
-            
-        if not uid:
-            return {
-                'error': {
-                    'title': _('Login Failed'),
-                    'message': _('Invalid email or password.'),
-                }
-            }
- 
-        return {'success': True, 'user_id': uid}
 
     @http.route('/training/list_users', type='http', auth='public', methods=['GET'], csrf=False)
     def list_users(self, **kwargs):
@@ -269,244 +176,44 @@ class WebsiteBackend(http.Controller):
         return Response(
             json.dumps({'count': len(data), 'users': data}),
             headers=[('Content-Type', 'application/json')],
-        )
-        
-    @http.route(
-        '/training/send_password_otp',
-        type='json',
-        auth='user',
-        csrf=False
-    )
-    def send_password_otp(self):
-        user = request.env.user
-        otp = user.generate_otp(
-            'change_password'
-        )
+        )    
 
-        user.partner_id.message_post(
-            subject='Password Change OTP',
-            body=f'''
-                OTP Code: {otp.otp_code}
+    @http.route('/training_v13/delete_user', type='json', auth='public', csrf=False)
+    def delete_user(self, email=None, **kwargs):
 
-                Valid for 5 minutes.
-            '''
-        )
+        raw = request.jsonrequest or {}
+        email = email or raw.get('email')
 
-        return {
-            'success': True
-        }
-    
-    @http.route('/training/change_password', type='json', auth='user', csrf=False)
-    def change_password(self, otp_code, new_password, confirm_password):
-        user = request.env.user
-        
-        if new_password != confirm_password:
+        email = (email or '').strip()
+
+        if not email:
             return {
                 'error': {
-                    'message':
-                    'Password confirmation mismatch.'
+                    'title': _('Missing Information'),
+                    'message': _('Email is required.'),
                 }
             }
 
-        if not user.verify_otp(
-            otp_code,
-            'change_password'
-        ):
-            return {
-                'error': {
-                    'message': 'OTP invalid or expired'
-                }
-            }
-
-        user.sudo().write({
-            'password': new_password
-        })
-
-        return {
-            'success': True,
-            'message': 'Password updated succesfully'
-        }
-        
-    @http.route(
-        '/training/send_email_otp',
-        type='json',
-        auth='user',
-        csrf=False
-    )
-    def send_email_otp(
-        self,
-        new_email=None,
-        **kwargs
-    ):
-
-        user = request.env.user
-
-        existing = request.env[
-            'res.users'
-        ].sudo().search([
-            ('login', '=', new_email),
-            ('id', '!=', user.id)
+        user = request.env['res.users'].sudo().search([
+            ('login', '=', email)
         ], limit=1)
 
-        if existing:
+        if not user:
             return {
                 'error': {
-                    'message':
-                    'Email already exists.'
+                    'title': _('User Not Found'),
+                    'message': _('No user found with this email.'),
                 }
             }
 
-        otp = user.generate_otp(
-            'change_email',
-            target_email=new_email
-        )
+        user_name = user.name
+        user_id = user.id
 
-        user.partner_id.message_post(
-            subject='Change Email OTP',
-            body=f'''
-                OTP Code: {otp.otp_code}
-
-                New Email:
-                {new_email}
-            '''
-        )
-
-        return {
-            'success': True
-        }
-
-    @http.route(
-        '/training/change_email',
-        type='json',
-        auth='user',
-        csrf=False
-    )
-    def change_email(
-        self,
-        otp_code=None,
-        **kwargs
-    ):
-
-        user = request.env.user
-
-        otp = user.verify_otp(
-            otp_code,
-            'change_email'
-        )
-
-        if not otp:
-            return {
-                'error': {
-                    'message':
-                    'OTP invalid or expired.'
-                }
-            }
-
-        user.sudo().write({
-            'login': otp.target_email,
-            'email': otp.target_email
-        })
+        user.sudo().unlink()
 
         return {
             'success': True,
-            'email': otp.target_email
-        }
-
-    @http.route('/training/current_user', type='json', auth='user', csrf=False)
-    def current_user(self):
-        user = request.env.user
-
-        return {
-            'id': user.id,
-            'name': user.name,
-            'email': user.email,
-            'phone': user.phone,
-            'mobile': user.mobile,
-            'city': user.city,
-            'company': user.company_id.name if user.company_id else None,
-        }
-
-    @http.route(
-        '/training/send_profile_otp',
-        type='json',
-        auth='user',
-        csrf=False
-    )
-    def send_profile_otp(
-        self,
-        name=None,
-        phone=None,
-        mobile=None,
-        city=None,
-        **kwargs
-    ):
-
-        user = request.env.user
-
-        otp = user.generate_otp(
-            'update_profile'
-        )
-
-        otp.sudo().write({
-            'pending_data': json.dumps({
-                'name': name,
-                'phone': phone,
-                'mobile': mobile,
-                'city': city,
-            })
-        })
-
-        mail = request.env['mail.mail'].sudo().create({
-            'subject': 'Profile Update OTP',
-            'email_to': user.email,
-            'body_html': f'''
-                <h3>Your OTP</h3>
-                <p>{otp.otp_code}</p>
-                <p>Expires in 5 minutes</p>
-            '''
-        })
-
-        mail.send()
-
-        return {
-            'success': True
-        }
-    
-    @http.route(
-        '/training/update_profile',
-        type='json',
-        auth='user',
-        csrf=False
-    )
-    def update_profile(
-        self,
-        otp_code=None,
-        **kwargs
-    ):
-
-        user = request.env.user
-
-        otp = user.verify_otp(
-            otp_code,
-            'update_profile'
-        )
-
-        if not otp:
-            return {
-                'error': {
-                    'message':
-                    'Invalid or expired OTP.'
-                }
-            }
-
-        vals = json.loads(
-            otp.pending_data or '{}'
-        )
-
-        user.sudo().write(vals)
-
-        return {
-            'success': True,
-            'message':
-            'Profile updated successfully.'
-        }
+            'user_id': user_id,
+            'user_name': user_name,
+            'message': 'User deleted successfully.'
+        }       

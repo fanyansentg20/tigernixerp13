@@ -1,13 +1,32 @@
 <tigernix>
+  <template id="_assets_frontend_helpers" inherit_id="web._assets_frontend_helpers">
+    <xpath expr="//link" position="before">
+      <link rel="stylesheet" type="text/scss"
+        href="/v13_training_portal/static/src/scss/views/training.scss" />
+    </xpath>
+  </template>
+
   <template id="training_layout" name="Training Layout"
     inherit_id="website.layout">
-
     <xpath expr="//head" position="inside">
-      <script src="https://unpkg.com/zod@3.22.4/lib/index.umd.js" />
-      <script type="text/javascript" src="/v13_training_portal/static/src/js/views/global.js" />
+      <script src="/v13_training_portal/static/src/js/libraries/zod-3.22.4.js" />
+      <link rel="stylesheet" href="/v13_training_portal/static/src/scss/libraries/notyf.min.css"></link>
+      <script src="/v13_training_portal/static/src/js/libraries/notyf.min.js"></script>
+
       <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-      <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+        href="/v13_training_portal/static/src/scss/libraries/bootstrap-icons.min.css" />
+      <script src="/v13_training_portal/static/src/js/libraries/ag-grid-community.min.js"></script>
+      <link href="/v13_training_portal/static/src/scss/libraries/tom-select.css"
+        rel="stylesheet" />
+      <script src="/v13_training_portal/static/src/js/libraries/tom-select.complete.min.js"></script>
+
+      <link rel="stylesheet" type="text/css"
+        href="/v13_training_portal/static/src/scss/libraries/flatpickr-dark.css" />
+      <link rel="stylesheet" href="/v13_training_portal/static/src/scss/libraries/flatpickr.min.css" />
+      <script src="/v13_training_portal/static/src/js/libraries/flatpickr.js"></script>
+      <script type="text/javascript" src="/v13_training_portal/static/src/js/views/global.js" />
+      <script src="/v13_training_portal/static/src/js/libraries/google-recaptcha.js" async="async"
+        defers="g-recaptcha"></script>
     </xpath>
 
   </template>

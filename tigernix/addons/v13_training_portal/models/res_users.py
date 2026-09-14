@@ -3,13 +3,15 @@
 import logging
 import random
 
-from datetime import timedelta
+from datetime import datetime, timedelta
 from tigernix import api, fields, models, tools, _
-from tigernix.exceptions import ValidationError
+from tigernix.exceptions import ValidationError, UserError
 from tigernix.http import request
 
 _logger = logging.getLogger(__name__)
 
+def now(**kwargs):
+    return datetime.now() + timedelta(**kwargs)
 
 class ResUsers(models.Model):
     _inherit = 'res.users'

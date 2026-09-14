@@ -18,7 +18,7 @@
         <ul>
           <li><strong>Dashboard</strong> - Menampilkan ringkasan informasi sistem.</li>
           <li><strong>Countries</strong> - Mengelola dan melihat daftar negara.</li>
-          <li><strong>User Profile</strong> - Mengelola dan melihat daftar pengguna.</li>
+          <li><strong>User Profile</strong> - Melihat dan mengubah profil pengguna.</li>
         </ul>
 
         <p>

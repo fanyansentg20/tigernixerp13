@@ -46,14 +46,6 @@ function clearError(field) {
   error.textContent = "";
 }
 
-function setValid(field) {
-  const input = document.getElementById(field);
-
-  if (input) {
-    input.classList.remove("is-invalid");
-  }
-}
-
 const onInputChange = async (e) => {
   const field = e.target.name;
   const value = e.target.value;
@@ -68,7 +60,7 @@ const onInputChange = async (e) => {
   }
 };
 
-const renderAlert = (msgText, alertType) => {
+const renderAlertPlaceholder = (msgText, alertType) => {
   const alertPlaceholder = document.getElementById("loginAlertPlaceholder");
   const appendAlert = (message, type) => {
     const wrapper = document.createElement("div");
@@ -97,9 +89,7 @@ const appendSpinner = (elementId) => {
   submitBtn.disabled = true;
   submitBtn.innerHTML = "";
   submitBtn.innerHTML = `
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
+    <div class="spinner-border" role="status"></div>
   `;
 };
 
@@ -107,6 +97,16 @@ const removeSpinner = (elementId, originalText) => {
   const submitBtn = document.getElementById(elementId);
   submitBtn.disabled = false;
   submitBtn.innerHTML = originalText;
+};
+
+const getRedirectUrl = () => {
+  const redirectUrl = new URLSearchParams(location.search).get("redirect");
+
+  if (redirectUrl) {
+    return redirectUrl;
+  }
+
+  return "/";
 };
 
 const onSubmit = async (e) => {
@@ -123,25 +123,37 @@ const onSubmit = async (e) => {
     return;
   }
 
+  const captchaResponse = grecaptcha.getResponse();
+
+  if (!captchaResponse) {
+    renderAlertPlaceholder("Please complete the reCAPTCHA", "danger");
+    return;
+  }
+
   clearAlert();
   appendSpinner("loginSubmitBtn");
-  const response = await fetch("/training_v13/login_user", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(getFormData()),
-  });
 
-  const responseBody = await response.json();
-  const { result: loginResult } = responseBody;
+  try {
+    const response = await fetch("/training_v13/login_user", {
+      method: "POST",
+      body: JSON.stringify(getFormData()),
+    });
 
-  if (loginResult?.error) {
-    renderAlert(loginResult?.error?.message, "danger");
-    removeSpinner("loginSubmitBtn", "Login");
-    return;
-  } else {
-    removeSpinner("loginSubmitBtn", "Login");
-    location.href = "/";
+    const responseBody = await response.json();
+    const { result: loginResult, error } = responseBody;
+
+    if (loginResult?.error || error) {
+      renderAlertPlaceholder(
+        loginResult?.error?.message || error?.message,
+        "danger",
+      );
+      removeSpinner("loginSubmitBtn", "Login");
+      return;
+    } else {
+      removeSpinner("loginSubmitBtn", "Login");
+      location.href = getRedirectUrl();
+    }
+  } catch (error) {
+    console.error(error);
   }
 };

@@ -3,8 +3,10 @@
 
   <template id="training_portal_homepage"
     inherit_id="website.homepage">
-    <xpath expr="//div[@id='wrap']" position="replace">
+    <xpath expr="." position="inside">
       <script type="text/javascript" src="/v13_training_portal/static/src/js/views/homepage.js" />
+    </xpath>
+    <xpath expr="//div[@id='wrap']" position="replace">
       <div id="trainingWrapper" class="d-flex flex-column flex-fill">
         <section class="py-4 bg-primary text-white">
           <div class="container">
@@ -16,21 +18,22 @@
           <div class="row flex-fill training-row">
             <!-- Sidebar Menu -->
             <div class="col-md-3">
-              <div class="list-group">
-                <a href="#dashboard" class="list-group-item list-group-item-action active"
-                  data-toggle="tab">
+              <div id="trainingMenu" class="list-group">
+                <a href="#dashboard" name="dashboard"
+                  class="list-group-item list-group-item-action active"
+                  data-toggle="tab" onclick="onClickTabMenu(event)">
                   Dashboard
                 </a>
-                <a href="#countries" class="list-group-item list-group-item-action"
-                  data-toggle="tab">
+                <a href="#countries" name="countries" class="list-group-item list-group-item-action"
+                  data-toggle="tab" onclick="onClickTabMenu(event)">
                   Countries
                 </a>
-                <a href="#users" class="list-group-item list-group-item-action"
-                  data-toggle="tab">
+                <a href="#profile" name="profile" class="list-group-item list-group-item-action"
+                  data-toggle="tab" onclick="onClickTabMenu(event)">
                   User Profile
                 </a>
-                <a href="#about" class="list-group-item list-group-item-action"
-                  data-toggle="tab">
+                <a href="#about" name="about" class="list-group-item list-group-item-action"
+                  data-toggle="tab" onclick="onClickTabMenu(event)">
                   About
                 </a>
 
@@ -49,9 +52,9 @@
 
                 <!-- Users -->
                 <div class="tab-pane fade flex-fill"
-                  id="users">
+                  id="profile">
+                  <t t-call="v13_training_portal.profile" />
                   <!-- <t t-call="v13_training_portal.profile" /> -->
-                  <t t-call="v13_training_portal.users" />
                 </div>
 
                 <!-- Countries -->

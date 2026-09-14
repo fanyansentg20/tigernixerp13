@@ -3,7 +3,7 @@
   <template id="countries" name="Countries">
     <script type="text/javascript" src="/v13_training_portal/static/src/js/views/countries.js" />
     <div class="card flex-fill">
-      <div class="card-body d-flex flex-column justify-content-between">
+      <div class="card-body training-table-container d-flex flex-column justify-content-between">
         <div class="d-flex flex-row justify-content-between">
           <h3>Countries</h3>
           <input type="email" class="form-control w-50" id="searchCountriesInput"

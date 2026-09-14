@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tigernix>
-  <!-- Assets -->
   <template id="dashboard" name="Dashboard">
+    <!-- Assets -->
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/v13_training_portal/static/src/js/dashboard.js" />
+    </xpath>
     <div class="card flex-fill">
       <div class="card-body">
         <section class="container mb32">
@@ -19,11 +22,11 @@
             <div class="col-md-4">
               <div class="card"
                 style="cursor: pointer;"
-                onclick="$('.list-group a[href=\'#users\']').tab('show'); return false;">
+                onclick="$('.list-group a[href=\'#profile\']').tab('show'); return false;">
                 <div class="card-body text-center">
-                  <i class="bi bi-people-fill text-primary" style="font-size: 4rem;"></i>
-                  <h4 class="mt-3">Users</h4>
-                  <p>Lihat daftar pengguna.</p>
+                  <i class="bi bi-person-lines-fill text-primary" style="font-size: 4rem;"></i>
+                  <h4 class="mt-3">User Profile</h4>
+                  <p>Lihat profil pengguna.</p>
                 </div>
               </div>
             </div>

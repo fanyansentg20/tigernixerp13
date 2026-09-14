@@ -5,7 +5,9 @@
 
     <!-- <link rel="stylesheet" href="https://jsdelivr.net" /> -->
     <script src="https://unpkg.com/zod@3.22.4/lib/index.umd.js" />
-    <script type="text/javascript" src="/v13_training_portal/static/src/js/views/register.js" />
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/v13_training_portal/static/src/js/views/register.js" />
+    </xpath>
     <!-- <p>Hello World</p>
       <p t-esc="message" />
       <p t-esc="partner.name" />
@@ -19,49 +21,149 @@
       </select> -->
     <!-- <t t-call="web._assets_helpers"/> -->
     <t t-call="v13_training_portal.training_layout">
-      <div id="registerContainer" class="d-flex flex-fill align-items-center justify-content-center">
-        <div class="card shadow-sm col-12 col-sm-7 col-md-6 col-lg-3 col-xxl-3">
+      <div id="titles"
+        t-att-data-titles="json.dumps(titleObject.read(['id', 'name', 'shortcut']))" />
+
+      <div id="registerContainer"
+        class="d-flex flex-fill align-items-center justify-content-center mx-4 my-5 py-5">
+        <div class="card shadow-sm col-12 col-lg-8 col-xl-6">
           <div class="card-header bg-primary text-white">
             <h4 class="mb-0">Create Account</h4>
           </div>
           <div class="card-body">
             <div id="registerAlertPlaceholder"></div>
             <form id="registerForm" novalidate="novalidate" onsubmit="onSubmit(event)">
+              <div class="container">
+                <div class="row">
+                  <!-- Title Field -->
+                  <div class="col-12 col-lg-6 mb-3">
+                    <label for="titleRegSelect" class="form-label">Title <span class="text-danger">*</span></label>
+                    <select id="titleRegSelectTarget" placeholder="Select Title..."
+                      autocomplete="off"></select>
 
-              <!-- Username Field -->
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" name="name" class="form-control"
-                  oninput="onInputChange(event)" required="true" />
-                <div id="name-err" class="invalid-feedback"></div>
+                    <div id="titleRegSelect-err" class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Name Field -->
+                  <div class="col-12 col-lg-6 mb-3">
+                    <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                    <input type="text" id="name" name="name" class="form-control"
+                      oninput="onInputChange(event)" required="true" />
+                    <div id="name-err" class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Email Field -->
+                  <div class="col-12 col-lg-6 mb-3">
+                    <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                    <input type="email" id="email" name="email" class="form-control"
+                      oninput="onInputChange(event)" required="true" />
+                    <div id="email-err" class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Birthdate Field -->
+                  <div class="col-12 col-lg-6 mb-3">
+                    <label for="birthdate" class="form-label">Birthdate <span class="text-danger">*</span></label>
+                    <input type="date" id="birthdate" name="birthdate" class="form-control"
+                      placeholder="Select Date..."
+                      required="true" />
+                    <div id="birthdate-err" class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- Country Field -->
+                  <div class="col-12 col-lg-6 mb-3">
+                    <label for="countryRegSelect" class="form-label">Country <span
+                        class="text-danger">*</span></label>
+                    <select id="countryRegSelectTarget" placeholder="Select Country..."
+                      autocomplete="off"></select>
+
+                    <div id="countryRegSelect-err" class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- State Field -->
+                  <div class="col-12 col-lg-6 mb-3">
+                    <label for="stateRegSelect" class="form-label">State <span class="text-danger">*</span></label>
+                    <select id="stateRegSelectTarget"></select>
+
+                    <div id="stateRegSelect-err" class="invalid-feedback"></div>
+                  </div>
+
+                  <!-- City Field -->
+                  <div id="cityRegSelect" class="col-12 col-lg-6 mb-3">
+                    <label for="cityRegSelect" class="form-label">City <span class="text-danger">*</span></label>
+                    <select id="cityRegSelectTarget"></select>
+
+                    <div id="cityRegSelect-err" class="invalid-feedback"></div>
+                  </div>
+
+                  <div id="mobilePhone" class="col-12 col-lg-6 mb-3">
+                    <label id="mobileLabel" for="mobile">Mobile</label>
+                    <input type="text" class="form-control" id="mobile"
+                      aria-describedby="basic-addon3" disabled="true" />
+                  </div>
+
+                  <!-- Password Field -->
+                  <div class="col-12 col-lg-6 mb-3">
+                    <div id="passwordContainer" class="mb-2">
+                      <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                      <div class="input-group training-input-group" name="password">
+                        <input type="password" id="password" class="form-control"
+                          oninput="onInputChange(event)" required="true" aria-label="Password"
+                          aria-describedby="show-password-btn" />
+                        <div class="input-group-append">
+                          <button class="btn btn-light" type="button" id="show-password-btn"
+                            onclick="togglePasswordVisibility('password', 'show-password-icon')">
+                            <i class="bi bi-eye" id="show-password-icon"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div id="password-err" class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="text-muted"><i class="">*</i> Must contain lowercase letter</div>
+                      <div class="text-muted"><i class="">*</i> Must contain uppercase letter</div>
+                      <div class="text-muted"><i class="">*</i> Must contain number</div>
+                      <div class="text-muted"><i class="">*</i> Must contain special character</div>
+                      <div class="text-muted"><i class="">*</i> At least 6 characters</div>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="mb-3">
+                      <label for="confirmPassword" class="form-label">Confirm Password <span
+                          class="text-danger">*</span></label>
+                      <div class="input-group training-input-group" name="confirmPassword">
+                        <input type="password" id="confirmPassword" class="form-control"
+                          oninput="onInputChange(event)" required="true" aria-label="Password"
+                          aria-describedby="show-confirm-password-btn" />
+                        <div class="input-group-append">
+                          <button class="btn btn-light" type="button" id="show-confirm-password-btn"
+                            onclick="togglePasswordVisibility('confirmPassword', 'show-confirm-password-icon')">
+                            <i class="bi bi-eye" id="show-confirm-password-icon"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div id="confirmPassword-err" class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="my-4 d-flex justify-content-center">
+                      <!-- The reCAPTCHA widget -->
+                      <!-- <div class="g-recaptcha"
+                data-sitekey="6LcL6qItAAAAAOBLhyZfPdKXkka9y3jvQdwjxkqV"></div> -->
+
+                      <!-- reCAPTCHA widget for development test only -->
+                      <div
+                        class="g-recaptcha"
+                        data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                      >
+                      </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button id="registerSubmitBtn" class="btn btn-primary w-100">Register</button>
+                  </div>
+                </div>
               </div>
 
-              <!-- Email Field -->
-              <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" id="email" name="email" class="form-control"
-                  oninput="onInputChange(event)" required="true" />
-                <div id="email-err" class="invalid-feedback"></div>
-              </div>
-
-              <!-- Password Field -->
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" name="password" class="form-control"
-                  oninput="onInputChange(event)" required="true" />
-                <div id="password-err" class="invalid-feedback"></div>
-              </div>
-
-              <!-- Confirm Password Field -->
-              <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword"
-                  class="form-control" oninput="onInputChange(event)" required="true" />
-                <div id="confirmPassword-err" class="invalid-feedback"></div>
-              </div>
-
-              <!-- Submit Button -->
-              <button id="registerSubmitBtn" class="btn btn-primary w-100">Register</button>
             </form>
           </div>
         </div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tigernix>
+  <template id="register_success" name="Register Success">
+    <xpath expr="." position="inside">
+      <script type="text/javascript"
+        src="/v13_training_portal/static/src/js/views/register_success.js" />
+    </xpath>
+    <t t-call="v13_training_portal.training_layout">
+      <div id="registerSuccessContainer"
+        class="d-flex flex-column flex-fill align-items-center justify-content-center mx-4 my-5 py-5">
+        <div class="spinner-grow full-size-spinner text-primary" role="status"></div>
+        <div class="text-center mt-5 training-redirect-text">
+          <p>Your account has been created successfully!</p>
+          <p>You will be redirected to the login page.</p>
+        </div>
+
+      </div>
+    </t>
+  </template>
+</tigernix>

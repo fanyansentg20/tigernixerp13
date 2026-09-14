@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadCountries = async (search = "") => {
     try {
-      const url = new URL("/v1/countries", "https://api.countrystatecity.in");
+      const url = new URL("/api/countries", "https://csc.sidsworld.co.in");
 
       if (search.trim()) {
         url.searchParams.set("q", search.trim());
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       const data = await response.json();
-      countriesData = data || [];
+      countriesData = data?.countries || [];
 
       gridApiCountries.setGridOption("rowData", countriesData);
     } catch (error) {
@@ -137,6 +137,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadCountries();
 });
+
+const debounce = (callback, delay = 300) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => callback(...args), delay);
+  };
+};
 
 const searchCountries = debounce((e) => {
   const inputValue = e.target.value.toLowerCase();
